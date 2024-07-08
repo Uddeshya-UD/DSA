@@ -65,6 +65,31 @@ public class Heap {
     }
 }
 
+public void heapify(int[] arr , int n , int i){
+    int largest = i;
+    int left = 2*i;
+    int right = 2*i + 1;
+
+    if(left < n && arr[largest] < arr[left]){
+        largest = left;
+    }
+
+    if(right < n && arr[largest] < arr[right]){
+        largest = right;
+    }
+
+    if(largest != i){
+        arr[largest] = arr[largest] + arr[i];
+                arr[i] = arr[largest] - arr[i];
+                arr[largest] = arr[largest] - arr[i];
+
+                heapify(arr, n, largest);
+    }
+
+
+
+}
+ 
 
     public void print() {
         for (int k=1 ; k<=size ;k++) {
@@ -74,14 +99,17 @@ public class Heap {
 
     public static void main(String[] args) {
         Heap h = new Heap();
-        h.insert(5);
-        h.insert(3);
-        h.insert(8);
-        h.insert(6);
-        h.insert(2);
-        
-        h.delete();
-        h.print();
+       
+    int[] arr = {-1 , 54 , 53, 55 ,52 ,50};
+       int size = 5;
+        for(int i= size/2 ; i> 0 ;i--) {
+            h.heapify(arr, arr.length, i);
+        }
+
+        for(int j=1 ; j<arr.length;j++){
+            System.out.println(arr[j]);
+        }
+       
 
     }
 

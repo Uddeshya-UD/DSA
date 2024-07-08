@@ -1,0 +1,19 @@
+Question 1 : Java singleton class and how do you implement it ?
+Answer : A singleton class in Java is a class that is designed to have only one instance throughout the lifetime of
+         the application. This design pattern is useful when exactly one object is needed to coordinate actions across the system.
+
+         public class LazyInitializedSingleton {
+            private static LazyInitializedSingleton instance;
+
+            // Private constructor to prevent instantiation
+            private LazyInitializedSingleton() {}
+
+            public static LazyInitializedSingleton getInstance() {
+                if (instance == null) {
+                    instance = new LazyInitializedSingleton();
+                }
+                return instance;
+            }
+}
+
+
