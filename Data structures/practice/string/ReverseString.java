@@ -2,7 +2,7 @@ package practice.string;
 
 import java.util.Arrays;
 
-class Reverse {
+class ReverseString {
     public static void reverseString(char[] s) {
         int start = 0;
         int end = s.length - 1;
